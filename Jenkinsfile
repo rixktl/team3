@@ -11,7 +11,6 @@ pipeline {
     }
     stage('build') {
       steps {
-        git(branch: 'jenkins', url: 'https://github.com/rixktl/team3')
         sh 'npm install'
       }
     }
