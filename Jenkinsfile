@@ -8,5 +8,10 @@ npm install
 '''
       }
     }
+    stage('git') {
+      steps {
+        git(branch: 'jenkins', url: 'https://github.com/rixktl/team3')
+      }
+    }
   }
 }
