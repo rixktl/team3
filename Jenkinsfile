@@ -1,17 +1,26 @@
 pipeline {
-  agent any
-
-  tools {nodejs "node"}
-  
+  agent {
+    docker {
+      image 'node:8.16.2-alpine' 
+      args '-p 3000:3000' 
+    }
+  }
   stages {
     stage('environment') {
       steps {
         sh 'npm install -g npm@latest'
       }
     }
-    stage('build') {
+    stage('installation') {
       steps {
         sh 'npm install'
+      }
+    }
+    stage('linting') {
+      steps {
+        sh 'npm run htmlhint'
+        sh 'npm run csslint'
+        sh 'npm run eslint'
       }
     }
   }
