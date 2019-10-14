@@ -23,5 +23,15 @@ pipeline {
         sh 'npm run eslint'
       }
     }
+    stage('testing') {
+      steps {
+        sh 'npm run test'
+      }
+    }
+    stage('generate docs') {
+      steps {
+        sh 'npm run generate-docs'
+      }
+    }
   }
 }
