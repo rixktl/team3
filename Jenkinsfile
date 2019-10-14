@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'node:8.16.2-alpine' 
+      image 'buildkite/puppeteer:latest' 
       args '-p 3000:3000' 
     }
   }
